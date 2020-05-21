@@ -49,14 +49,14 @@
 			}
 			$sql = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
 			$rsql = mysqli_query($conn, $findPub);
-			$publisherid = rsql['publisherid'];
+			$publisherid = $rsql['publisherid'];
 		} else {
 			$row = mysqli_fetch_assoc($findResult);
 			$publisherid = $row['publisherid'];
 		}
 
 
-		$query = "INSERT INTO books VALUES ('" . $isbn . "', '" . $title . "', '" . $author . "', '" . $image . "', '" . $descr . "', '" . $price . "', '21')";
+		$query = "INSERT INTO books VALUES ('" . $isbn . "', '" . $title . "', '" . $author . "', '" . $image . "', '" . $descr . "', '" . $price . "', '" . $publisherid . "')";
 		$result = mysqli_query($conn, $query);
 		if(!$result){
 			echo "Can't add new data " . mysqli_error($conn);
