@@ -29,12 +29,17 @@
 	$row = mysqli_fetch_assoc($result);
 	
 	if($name == $row['name'] &&$pass == $row['pass']){
-		echo "Name or pass is wrong. Check again!";
+		
 		$_SESSION['admin'] = true;
+		header("Location: admin_book.php");
 		//exit;
+	}
+	esle {
+		echo "Name or pass is wrong. Check again!";
+		$_SESSION['admin'] = false;
 	}
 
 	//if(isset($conn)) {mysqli_close($conn);}
 	//$_SESSION['admin'] = true;
-	header("Location: admin_book.php");
+	
 ?>
