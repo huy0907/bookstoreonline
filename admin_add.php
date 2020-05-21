@@ -49,7 +49,7 @@
 			$publisherid = mysql_insert_id($conn);
 		} else {
 			$row = mysqli_fetch_assoc($findResult);
-			$publisherid = $row['publisherid'];
+			$publisherid = $row[publisherid];
 		}
 
 
