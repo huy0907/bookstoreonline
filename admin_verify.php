@@ -27,14 +27,14 @@
 		exit;
 	}
 	$row = mysqli_fetch_assoc($result);
-
-	if($name != $row['name'] || $pass != $row['pass']){
+	
+	if($name == $row['name'] &&$pass == $row['pass']){
 		echo "Name or pass is wrong. Check again!";
-		$_SESSION['admin'] = false;
-		exit;
+		$_SESSION['admin'] = true;
+		//exit;
 	}
 
-	if(isset($conn)) {mysqli_close($conn);}
-	$_SESSION['admin'] = true;
+	//if(isset($conn)) {mysqli_close($conn);}
+	//$_SESSION['admin'] = true;
 	header("Location: admin_book.php");
 ?>
