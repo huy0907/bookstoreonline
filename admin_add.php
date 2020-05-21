@@ -49,7 +49,9 @@
 			}
 			$sql = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
 			$rsql = mysqli_query($conn, $findPub);
-			$publisherid = $rsql['publisherid'];
+			$sda = mysqli_fetch_assoc($rsql);
+			
+			$publisherid = $sda['publisherid'];
 		} else {
 			$row = mysqli_fetch_assoc($findResult);
 			$publisherid = $row['publisherid'];
