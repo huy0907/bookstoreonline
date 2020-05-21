@@ -56,7 +56,7 @@
 		}
 
 
-		$query = "INSERT INTO books VALUES ('" . $isbn . "', '" . $title . "', '" . $author . "', '" . $image . "', '" . $descr . "', '" . $price . "', '" . $publisherid . "')";
+		$query = "INSERT INTO books VALUES ('" . $isbn . "', '" . $title . "', '" . $author . "', '" . $image . "', '" . $descr . "', '" . $price . "', '21')";
 		$result = mysqli_query($conn, $query);
 		if(!$result){
 			echo "Can't add new data " . mysqli_error($conn);
