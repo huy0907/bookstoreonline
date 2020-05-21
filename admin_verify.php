@@ -15,8 +15,8 @@
 		exit;
 	}
 
-	$name = "admin";
-	$pass = "admin");
+	$name = mysqli_real_escape_string($conn, $name);
+	$pass = mysqli_real_escape_string($conn, $pass);
 	$pass = sha1($pass);
 
 	// get from db
@@ -27,19 +27,14 @@
 		exit;
 	}
 	$row = mysqli_fetch_assoc($result);
-	
-	if($name == $row['name'] &&$pass == $row['pass']){
-		
-		$_SESSION['admin'] = true;
-		header("Location: admin_book.php");
-		//exit;
-	}
-	esle {
-		echo "Name or pass is wrong. Check again!";
+
+	if($name != $row['name'] && $pass != $row['pass']){
+		echo "Name or pass is wrong. Check again!" + $row['name'];
 		$_SESSION['admin'] = false;
+		exit;
 	}
 
-	//if(isset($conn)) {mysqli_close($conn);}
-	//$_SESSION['admin'] = true;
-	
+	if(isset($conn)) {mysqli_close($conn);}
+	$_SESSION['admin'] = true;
+	header("Location: admin_book.php");
 ?>
