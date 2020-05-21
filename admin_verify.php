@@ -15,9 +15,7 @@
 		exit;
 	}
 
-	$name = mysqli_real_escape_string($conn, $name);
-	$pass = mysqli_real_escape_string($conn, $pass);
-	$pass = sha1($pass);
+	
 
 	// get from db
 	$query = "SELECT name, pass from admin";
@@ -29,7 +27,7 @@
 	$row = mysqli_fetch_assoc($result);
 
 	if($name != $row['name'] or $pass != $row['pass']){
-		echo $row['pass'] ;
+		echo $pass ;
 		$_SESSION['admin'] = false;
 		exit;
 	}
