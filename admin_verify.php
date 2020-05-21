@@ -28,7 +28,7 @@
 	}
 	$row = mysqli_fetch_assoc($result);
 
-	if($name != $row['name'] && $pass != $row['pass']){
+	if($name != $row['name'] || $pass != $row['pass']){
 		echo "Name or pass is wrong. Check again!";
 		$_SESSION['admin'] = false;
 		exit;
