@@ -45,7 +45,7 @@
 
 	function insertIntoOrder($conn, $customerid, $total_price, $date, $ship_name, $ship_address, $ship_city, $ship_zip_code, $ship_country){
 		$query = "INSERT INTO orders VALUES 
-		('', '" . $customerid . "', '" . $total_price . "', '" . $date . "', '" . $ship_name . "', '" . $ship_address . "', '" . $ship_city . "', '" . $ship_zip_code . "', '" . $ship_country . "')";
+		('', ' . $customerid . ', '" . $total_price . "', '" . $date . "', '" . $ship_name . "', '" . $ship_address . "', '" . $ship_city . "', '" . $ship_zip_code . "', '" . $ship_country . "')";
 		$result = mysqli_query($conn, $query);
 		if(!$result){
 			echo "Insert orders failed " . mysqli_error($conn);
