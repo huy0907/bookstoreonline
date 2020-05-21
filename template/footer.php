@@ -2,7 +2,7 @@
 
       	<footer>
         	<div class="text-muted pull-left">
-            	<a href="fb.com/huyuet" target="_blank"> Admin Facebook </a>
+            	<a href= "<?php echo "fb.com/huyuet"; ?>"> Admin Facebook </a>
         	</div>
         	<div class="text-muted pull-right">
           		<a href="admin.php">Admin Login</a> 2017
