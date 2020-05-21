@@ -39,7 +39,7 @@
 		$findPub = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
 		$findResult = mysqli_query($conn, $findPub);
 		
-		if(isset($findResult){
+		if(!($findResult){
 			// insert into publisher table and return id
 			$insertPub = "INSERT INTO publisher(`publisher_name`) VALUES (' $publisher ')";
 			mysqli_query($conn, $insertPub);
