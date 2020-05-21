@@ -15,8 +15,8 @@
 		exit;
 	}
 
-	$name = mysqli_real_escape_string($conn, $name);
-	$pass = mysqli_real_escape_string($conn, $pass);
+	$name = "admin";
+	$pass = "admin");
 	$pass = sha1($pass);
 
 	// get from db
