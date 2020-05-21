@@ -40,7 +40,7 @@
 		$findResult = mysqli_query($conn, $findPub);
 		if(!$findResult){
 			// insert into publisher table and return id
-			$insertPub = "INSERT INTO publisher(publisher_name) VALUES (NULL, '$publisher')";
+			$insertPub = "INSERT INTO publisher VALUES (NULL, '$publisher')";
 			$insertResult = mysqli_query($conn, $insertPub);
 			if(!$insertResult){
 				echo "Can't add new publisher " . mysqli_error($conn);
@@ -49,7 +49,7 @@
 			$publisherid = mysql_insert_id($conn);
 		} else {
 			$row = mysqli_fetch_assoc($findResult);
-			$publisherid = $row[publisherid];
+			$publisherid = $row['publisherid'];
 		}
 
 
