@@ -42,11 +42,8 @@
 		if(!$findResult){
 			// insert into publisher table and return id
 			$insertPub = "INSERT INTO publisher(`publisher_name`) VALUES (' $publisher ')";
-			$insertResult = mysqli_query($conn, $insertPub);
-			if(!$insertResult){
-				echo "Can't add new publisher " . mysqli_error($conn);
-				exit;
-			}
+			mysqli_query($conn, $insertPub);
+			
 			$sql = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
 			$rsql = mysqli_query($conn, $findPub);
 			$sda = mysqli_fetch_assoc($rsql);
