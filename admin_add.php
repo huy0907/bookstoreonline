@@ -97,14 +97,7 @@
 			</tr>
 			<tr>
 				<th>Publisher</th>
-				<td><select name="publisher" required>
-					  <option value="Wrox">Wrox</option>
-	 				  <option value="Wiley">Wiley</option>
-                      <option value="O'Reilly Media">O'Reilly Media</option>
-					  <option value="Apress">Apress</option>
-	 				  <option value="Addison-Wesley">Addison-Wesley</option>
-                      <option value="Others">Others</option>
-				</td>
+				<td><input type="text" name="publisher" required></td>
 			</tr>
 		</table>
 		<input type="submit" name="add" value="Add new book" class="btn btn-primary">
