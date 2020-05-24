@@ -23,29 +23,19 @@
 	require_once("./functions/database_functions.php");
 	$conn = db_connect();
 
-	// if publisher is not in db, create new
-	$findPub = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
-	$findResult = mysqli_query($conn, $findPub);
-	if(!$findResult){
-		// insert into publisher table and return id
-		$insertPub = "INSERT INTO publisher(publisher_name) VALUES ('$publisher')";
-		$insertResult = mysqli_query($conn, $insertPub);
-		if(!$insertResult){
-			echo "Can't add new publisher " . mysqli_error($conn);
-			exit;
-		}
-	}
-
-
-	$query = "UPDATE books SET  
-	book_title = '$title', 
-	book_author = '$author', 
-	book_descr = '$descr', 
-	book_price = '$price'";
+	
 	if(isset($image)){
-		$query .= ", book_image='$image' WHERE book_isbn = '$isbn'";
+		$query = "UPDATE books SET  
+		book_title = '$title', 
+		book_author = '$author', 
+		book_descr = '$descr', 
+		book_price = '$price', book_image='$image'";
 	} else {
-		$query .= " WHERE book_isbn = '$isbn'";
+		$query = "UPDATE books SET  
+		book_title = '$title', 
+		book_author = '$author', 
+		book_descr = '$descr', 
+		book_price = '$price'";
 	}
 	// two cases for fie , if file submit is on => change a lot
 	$result = mysqli_query($conn, $query);
