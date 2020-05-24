@@ -29,13 +29,13 @@
 		book_title = '$title', 
 		book_author = '$author', 
 		book_descr = '$descr', 
-		book_price = '$price', book_image='$image'";
+		book_price = '$price', book_image='$image' WHERE book_isbn = '$isbn'";
 	} else {
 		$query = "UPDATE books SET  
 		book_title = '$title', 
 		book_author = '$author', 
 		book_descr = '$descr', 
-		book_price = '$price'";
+		book_price = '$price' WHERE book_isbn = '$isbn'";
 	}
 	// two cases for fie , if file submit is on => change a lot
 	$result = mysqli_query($conn, $query);
