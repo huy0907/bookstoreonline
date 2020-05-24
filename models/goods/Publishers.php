@@ -43,7 +43,7 @@ private $id;
     /**
      * publisher constructor.
      * @param $name
-     * @param $address
+     * @param $addres
      */
     public function __construct($name,$id=null, $address=null)
     {

@@ -25,7 +25,7 @@
 		$publisher = trim($_POST['publisher']);
 		$publisher = mysqli_real_escape_string($conn, $publisher);
 
-		// add image
+
 		if(isset($_FILES['image']) && $_FILES['image']['name'] != ""){
 			$image = $_FILES['image']['name'];
 			$directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']);
@@ -34,12 +34,11 @@
 			move_uploaded_file($_FILES['image']['tmp_name'], $uploadDirectory);
 		}
 
-		// find publisher and return pubid
-		// if publisher is not in db, create new
+
 		$findPub = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
 		$findResult = mysqli_query($conn, $findPub);
 		if(!$findResult){
-			// insert into publisher table and return id
+			
 			$insertPub = "INSERT INTO publisher(publisher_name) VALUES ('$publisher')";
 			$insertResult = mysqli_query($conn, $insertPub);
 			if(!$insertResult){
@@ -92,12 +91,12 @@
 			<tr>
 				<th>Publisher</th>
 				<td><select name="publisher" required>
-					  <option value="Wrox">Wrox</option>
-	 				  <option value="Wiley">Wiley</option>
-                      <option value="O'Reilly Media">O'Reilly Media</option>
-					  <option value="Apress">Apress</option>
-	 				  <option value="Addison-Wesley">Addison-Wesley</option>
-                      <option value="Others">Others</option></td>
+					  <option value="Wrox">Kim Đồng</option>
+	 				  <option value="Wiley">First News</option>
+                      <option value="O'Reilly Media">MCBOOKS</option>
+					  <option value="Apress">Alphabooks</option>
+	 				  <option value="Addison-Wesley">Thái Hà</option>
+                      <option value="Others">Khác</option></td>
 			</tr>
 		</table>
 		<input type="submit" name="add" value="Add new book" class="btn btn-primary">

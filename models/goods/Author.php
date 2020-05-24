@@ -43,9 +43,7 @@ class Author
         return $this->country;
     }
 
-    /**
-     * @return null
-     */
+
     public function getId ()
     {
         return $this->id;

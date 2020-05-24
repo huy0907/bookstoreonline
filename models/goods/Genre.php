@@ -34,7 +34,7 @@ class Genre
     }
 
     /**
-     * @return null
+     * @return nul
      */
     public function getId ()
     {

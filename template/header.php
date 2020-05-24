@@ -23,7 +23,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.php">CSE Bookstore</a>
+          <a class="navbar-brand" href="index.php">VaHu Bookstore</a>
         </div>
 
         <!--/.navbar-collapse -->
@@ -33,8 +33,6 @@
               <li><a href="publisher_list.php"><span class="glyphicon glyphicon-paperclip"></span>&nbsp; Publisher</a></li>
               <!-- link to books.php -->
               <li><a href="books.php"><span class="glyphicon glyphicon-book"></span>&nbsp; Books</a></li>
-              <!-- link to contacts.php -->
-              <li><a href="contact.php"><span class="glyphicon glyphicon-phone-alt"></span>&nbsp; Contact</a></li>
               <!-- link to shopping cart -->
               <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; My Cart</a></li>
             </ul>
@@ -47,9 +45,9 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome to online CSE bookstore</h1>
-        <p class="lead">This site has been made using PHP with MYSQL (procedure functions)!</p>
-        <p>The layout use Bootstrap to make it more responsive. It's just a simple web!</p>
+        <h1>Chào mừng đến với VaHu bookstore!!!</h1>
+        <p class="lead">The reading of all good books is like a conversation with the finest minds of past centuries.</p>
+        <p>Rene Descartes</p>
       </div>
     </div>
     <?php } ?>

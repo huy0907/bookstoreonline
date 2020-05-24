@@ -30,9 +30,7 @@ class Talking
     public const   SEARCH_AUTHOR_NAME = 6;
     public const   SEARCH_BOOK_CATEGORY = 7;
 
-    /**
-     * Talking constructor.
-     */
+
     public function __construct ()
     {
         $options = [
@@ -277,12 +275,7 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         return $this->stat;
     }
 
-    /**
-     * @param int max $limit od row he want and it's default =20.
-     * @return bool|PDOStatement: false if there no data in book table in DB,
-     * else i wll return PDOStatement object not an object.
-     * it may be big amount of data ,so it is not a good idea to cash it
-     */
+
     public function lastUpload (int $limit = 20)
     {
         try {
@@ -300,10 +293,6 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         }
     }
 
-    /**
-     * @param $id : of the customer .
-     * @return Customers or null if there are no any result from Db.
-     */
 
     public function getCustomerByid ($id): Customers
     {
@@ -321,10 +310,7 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         }
     }
 
-    /**
-     * @param $orderId
-     * @return Customers the owner of this order hold in object
-     */
+
     public function getCustomerByorder ($orderId): Customers
     {
         try {
@@ -343,10 +329,6 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         }
     }
 
-    /**
-     * @param $id int .
-     * @return Address object hold the data about the address of passed id.
-     */
 
     public function getAddress ($id): Address
     {
@@ -370,11 +352,6 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         $this->stat = null;
     }
 
-    /**
-     * @param $customweId
-     * @return Orders .
-     * get an object of Orders that hold all data about order of the customer and it's orderDetails .
-     */
 
     public function getOrderofCustomer ($customerId): Orders
     {
@@ -406,17 +383,7 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         }
     }
 
-    /**
-     * @param int $search by what ?
-     * @param string $str
-     * if $search = $this->SEARCH_AUTHOR_NAME (6)it will search by author by "like" method .
-     * if $search = $this->SEARCH_BOOK_CATEGORY(7) it will search by genre (it should be  the same as the name in database to get that data )
-     * in other words it uses "=" unlike the above($this->SEARCH_AUTHOR_NAME,$this->SEARCH_BOOK_CATEGORY)
-     * and others .if $search $this->SEARCH_BOOK_NAME (5)it will search by name(title) of the book  by "like" method.
-     * if its not 6 and 7 it consider that it's 5
-     * @return void and it cash the data in the shape of Book objects.
-     * you can only get result data from Book::getObjects():array
-     */
+
 
     public function cashBooks (int $search, string $str): void
     {
@@ -457,8 +424,7 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
             echo $PDOException->getMessage();
         }
     }
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-/// they do not test
+
 
     public function getAllpublishers (): PDOStatement
     {
@@ -503,10 +469,7 @@ AND timestamp(o.order_date) >= ? and timestamp(o.order_date)<=?;");
         }
     }
 
-    /**
-     * @param $name : the name of admin
-     * @return Admin or null if any exception happened or user not found
-     */
+
     public function getadmin ($name): Admin
     {
         try {

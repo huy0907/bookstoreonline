@@ -2,10 +2,10 @@
 
       	<footer>
         	<div class="text-muted pull-left">
-            	<a href= "<?php echo "https://www.facebook.com"; ?>"> Admin Facebook </a>
+            	<a href= "<?php echo "https://www.facebook.com/huyuet"; ?>"> Contact with me </a>
         	</div>
         	<div class="text-muted pull-right">
-          		<a href="admin.php">Admin Login</a> 2017
+          		<a href="admin.php">Admin Login</a>
         	</div>
       	</footer>
     </div> <!-- /container -->

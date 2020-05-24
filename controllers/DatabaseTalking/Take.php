@@ -1,7 +1,5 @@
 <?php
-/**
- * this class is  coded  by Ahmed  Embaby in  24  SEP  2019
- */
+
 spl_autoload_register(function ($class){
     $arr=[__DIR__.'/../../models/goods',
         __DIR__.'/../../models/orders',
@@ -19,13 +17,7 @@ spl_autoload_register(function ($class){
 
 class Take extends Talking
 {
-    /**
-     * @param Orders $order
-     * insert all data of the order
-     * includes the customer that make the order and his address data
-     * also all the orderDetails related to this order.
-     * @return false only if any error happened or  no orderDetails had been found in object $order
-     */
+
     public function takeorder (Orders $order,&$orderNumber=null):bool
     {
         try{
@@ -36,7 +28,7 @@ class Take extends Talking
             $orderId=rand(1, 1000000000);
             $orderNumber=$orderId;
            $this->conn->beginTransaction();
-           //insert address of the customer
+           //insert address
            $this->stat=$this->conn->prepare('INSERT INTO address VALUES (?,?,?,?,?)');
            $this->stat->execute(array(
                0=> $addressId,
@@ -55,9 +47,6 @@ class Take extends Talking
                5=>$customer->getPassword()
            ));
            /**
-             * insert order data.
-             * order_Date DEFAULT is  CURRENT_TIMESTAMP().
-             * delivering_date DEFAULT is null.
              *  by NULL value it's possible to know whether the order delivered or not .
              */
            $this->stat=$this->conn->prepare('INSERT INTO orders (order_id, customer_id) values (?,?)');
@@ -65,12 +54,7 @@ class Take extends Talking
                0=>$orderId,
                1=>$customerId
            ));
-           /**
-            *insert the order details of the order
-            * if the getOrderDetails() returns an empty array ,
-            * it means that customer that make the order do not order any book .
-            * thus if no order Details nothing will be committed
-            */
+
            if (count($order->getOrderDetails())) {
                foreach ($order->getOrderDetails() as $id => $detail) {
                    $this->insertANOrderDetails($orderId,$detail);
@@ -81,7 +65,7 @@ class Take extends Talking
                $this->conn->rollBack();
                return false;
            }
-           //no errors or empty OrderDetails then commit
+
            return $this->conn->commit();
         }catch (PDOException $PDOException){
            $this->conn->rollBack();
@@ -158,12 +142,6 @@ class Take extends Talking
 
     }
 
-    /**
-     * @param Book $book
-     * insert the book into DB .
-     * @return true if the the book inserted successfully else it return false.
-     */
-
     public function takeBook(Book $book):bool {
         try{
             $this->stat=$this->conn->prepare("
@@ -190,11 +168,7 @@ class Take extends Talking
 
     }
 
-    /**
-     * @param Book $book
-     * @return bool
-     *update book without updating the image but it delete the old image
-     */
+
 
     public function updateBook(Book $book):bool{
         try{
