@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="bootstrap/css/style_dich_vu.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <title>Dịch vụ</title>
+</head>
 
-    <title><?php echo $title; ?></title>
-
-    <link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="./bootstrap/css/jumbotron.css" rel="stylesheet">
-  </head>
-
-  <body>
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="index.php">VaHu Bookstore</a>
-        </div>
-
-        <!--/.navbar-collapse -->
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <!-- link to publiser_list.php -->
-              <li><a href="publisher_list.php"><span class="glyphicon glyphicon-paperclip"></span>&nbsp; Publisher</a></li>
-              <!-- link to books.php -->
-              <li><a href="books.php"><span class="glyphicon glyphicon-book"></span>&nbsp; Books</a></li>
-              <!-- link to shopping cart -->
-              <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; My Cart</a></li>
-            </ul>
+  <header class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12 col-md-1">
+        <div class="logo" style="margin-left: 135px" style="height: 400px"><a href="index.php" target="_blank">
+          <img src="bootstrap/img/hello.jpg" alt="Logo" class=""></a>
         </div>
       </div>
-    </nav>
+      <br>
+      
+    
+    </div>
+  </header>
+  <nav class="navbar navbar-expand-lg navbar-light " >
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto ">
+       <li class="nav-item">
+        <a class="nav-link" href="index.php">  HOME                  
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="publisher_list.php">NHÁ XUẤT BẢN
+        </a>
+        
+      <li class="nav-item">
+        <a class="nav-link" href="books.php">SÁCH</a>
+       <li class="nav-item">
+        <a class="nav-link" href="contact.php">LIÊN HỆ</a>
+       <li class="nav-item">
+        <a class="nav-link" href="cart.php">GIỎ HÀNG</a>  
+        </div>
+    </ul> 
+  </div>
+</nav>
+  
     <?php
       if(isset($title) && $title == "Index") {
     ?>
     <!-- Main jumbotron for a primary marketing message or call to action -->
-    <div class="jumbotron">
-      <div class="container">
-        <h1>Chào mừng đến với VaHu bookstore!!!</h1>
-        <p class="lead">The reading of all good books is like a conversation with the finest minds of past centuries.</p>
-        <p>Rene Descartes</p>
-      </div>
-    </div>
+   
     <?php } ?>
 
     <div class="container" id="main">

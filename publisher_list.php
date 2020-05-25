@@ -1,4 +1,7 @@
+
+
 <?php
+
 	session_start();
 	require_once "./functions/database_functions.php";
 	$conn = db_connect();
@@ -18,10 +21,21 @@
 	require "./template/header.php";
 ?>
 	<p class="lead">List of Publisher</p>
-	<ul>
+	<ul style="
+	list-style: none;
+	
+	text-align: left;
+	background-color: #ced8db;
+	text-decoration: none;
+	display: block;
+	
+
+
+	" >
 	<?php 
 		while($row = mysqli_fetch_assoc($result)){
-			$count = 0; 
+			$count = 0;
+			$x = 0;
 			$query = "SELECT publisherid FROM books";
 			$result2 = mysqli_query($conn, $query);
 			if(!$result2){
@@ -29,18 +43,28 @@
 				exit;
 			}
 			while ($pubInBook = mysqli_fetch_assoc($result2)){
+				$x++;
 				if($pubInBook['publisherid'] == $row['publisherid']){
 					$count++;
 				}
 			}
 	?>
 		<li>
-			<span class="badge"><?php echo $count; ?></span>
-		    <a href="bookPerPub.php?pubid=<?php echo $row['publisherid']; ?>"><?php echo $row['publisher_name']; ?></a>
+			
+		    <a 
+		     "  href="bookPerPub.php?pubid=<?php echo $row['publisherid']; ?>"><?php echo $row['publisher_name']; ?></a>
+		    <span>có</span>
+		    <span class="badge"><?php echo $count; ?></span>
+		    <span>Cuốn</span>
 		</li>
 	<?php } ?>
 		<li>
+			
 			<a href="books.php">List full of books</a>
+			<span>có</span>
+			<span><?php  echo $x;      ?></span>
+			<span>Cuốn</span>
+
 		</li>
 	</ul>
 <?php

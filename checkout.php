@@ -50,31 +50,31 @@
 		<div class="form-group">
 			<label for="name" class="control-label col-md-4">Name</label>
 			<div class="col-md-4">
-				<input type="text" name="name" class="col-md-4" class="form-control">
+				<input type="text" name="name" class="col-md-6	" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="address" class="control-label col-md-4">Address</label>
 			<div class="col-md-4">
-				<input type="text" name="address" class="col-md-4" class="form-control">
+				<input type="text" name="address" class="col-md-12" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="city" class="control-label col-md-4">City</label>
 			<div class="col-md-4">
-				<input type="text" name="city" class="col-md-4" class="form-control">
+				<input type="text" name="city" class="col-md-3" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="zip_code" class="control-label col-md-4">Zip Code</label>
+			<label for="zip_code" class="control-label col-md-6">Phone</label>
 			<div class="col-md-4">
-				<input type="text" name="zip_code" class="col-md-4" class="form-control">
+				<input type="text" name="zip_code" class="col-md-5" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">
 			<label for="country" class="control-label col-md-4">Country</label>
 			<div class="col-md-4">
-				<input type="text" name="country" class="col-md-4" class="form-control">
+				<input type="text" name="country" class="col-md-5" class="form-control">
 			</div>
 		</div>
 		<div class="form-group">

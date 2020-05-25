@@ -1,0 +1,41 @@
+
+@font-face{
+	font-family:"OpenSans-Bold";
+	src: url('fonts/OpenSans-Bold.ttf');
+}
+@font-face{
+	font-family:"OpenSans-Regular";
+	src: url('fonts/OpenSans-Regular.ttf');
+}
+nav {
+	
+	padding-bottom: 100px;
+	content: center;
+	margin-left: 500px;
+	
+	
+	
+}
+nav a{
+	font-family:"OpenSans-Bold";
+	color: #9b9b9b;
+	font-size: 16px; 
+
+}
+nav a:hover{
+	color: #19438c !important;
+	border-bottom: 3px solid #ffb536;
+
+}
+nav .active a{
+	color: #19438c !important;
+}
+nav form button{
+	position: absolute !important;
+	right: 20px;
+	
+}
+nav form input {
+	border-radius: 30px !important;
+}
+

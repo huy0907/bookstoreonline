@@ -18,7 +18,7 @@
 		exit;
 	}
 
-	// get book data
+
 	$query = "SELECT * FROM books WHERE book_isbn = '$book_isbn'";
 	$result = mysqli_query($conn, $query);
 	if(!$result){

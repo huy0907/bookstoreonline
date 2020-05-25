@@ -8,7 +8,6 @@
 	$result = getAll($conn);
 ?>
 	<p class="lead"><a href="admin_add.php">Add new book</a></p>
-	<a href="admin_signout.php" class="btn btn-primary">Sign out!</a>
 	<table class="table" style="margin-top: 20px">
 		<tr>
 			<th>ISBN</th>
@@ -35,7 +34,7 @@
 		</tr>
 		<?php } ?>
 	</table>
-
+	<a href="admin_signout.php" class="btn btn-primary">Sign out!</a>
 <?php
 	if(isset($conn)) {mysqli_close($conn);}
 	require_once "./template/footer.php";

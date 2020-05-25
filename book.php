@@ -4,6 +4,7 @@
   // connecto database
   require_once "./functions/database_functions.php";
   $conn = db_connect();
+  
 
   $query = "SELECT * FROM books WHERE book_isbn = '$book_isbn'";
   $result = mysqli_query($conn, $query);
@@ -17,7 +18,7 @@
     echo "Empty book";
     exit;
   }
-
+  
   $title = $row['book_title'];
   require "./template/header.php";
 ?>
