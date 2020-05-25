@@ -12,7 +12,7 @@
   <header class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-md-1">
-        <div class="logo"  style="height: 400px"><a href="index.php" target="_blank">
+        <div class="logo" ><a href="index.php" target="_blank">
           <img src="bootstrap/img/hello.jpg" alt="Logo" class=""></a>
         </div>
       </div>
