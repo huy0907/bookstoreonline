@@ -1,4 +1,1 @@
-LINK WEBSITE
-https://h2kbookstore.herokuapp.com
-Tài khoản admin: admin
-Pass: admin
+Báo cáo ở file 
