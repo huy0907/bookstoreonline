@@ -6,7 +6,7 @@
   $conn = db_connect();
   
 
-  $query = "SELECT * FROM books WHERE book_isbn = '$book_isbn'";
+  $query = "SELECT * FROM books b LEFT JOIN category c ON b.category = c.id_cat WHERE book_isbn = '$book_isbn' ";
   $result = mysqli_query($conn, $query);
   if(!$result){
     echo "Can't retrieve data " . mysqli_error($conn);
@@ -26,7 +26,7 @@
       <p class="lead" style="margin: 25px 0"><a href="books.php">Books</a> > <?php echo $row['book_title']; ?></p>
       <div class="row">
         <div class="col-md-3 text-center">
-          <img class="img-responsive img-thumbnail" src="./bootstrap/img/<?php echo $row['book_image']; ?>">
+          <img class="img-responsive img-thumbnail" src="<?php echo $row['book_image']; ?>">
         </div>
         <div class="col-md-6">
           <h4>Book Description</h4>
@@ -34,22 +34,37 @@
           <h4>Book Details</h4>
           <table class="table">
           	<?php foreach($row as $key => $value){
-              if($key == "book_descr" || $key == "book_image" || $key == "publisherid" || $key == "book_title"){
+              if($key == "book_descr" || $key == "book_image" || $key == "publisherid" || $key == "book_title" || $key == "category"){
                 continue;
               }
               switch($key){
                 case "book_isbn":
-                  $key = "ISBN";
+                  $key = "Barcode";
                   break;
                 case "book_title":
-                  $key = "Title";
+                  $key = "Tiêu đề";
                   break;
                 case "book_author":
-                  $key = "Author";
+                  $key = "Tác giả";
                   break;
                 case "book_price":
-                  $key = "Price";
+                  $key = "Giá (VNĐ)";
                   break;
+                case "category_name":
+                  $key = "Thể loại";
+                break;
+                case "cover_type":
+                  $key = "Loại bìa";  
+                break;
+                case "page":
+                  $key = "Số trang";  
+                break;
+                case "size":
+                  $key = "Kích cỡ";  
+                break;
+                case "year_publish":
+                  $key = "Năm xuất bản";  
+                break;
               }
             ?>
             <tr>

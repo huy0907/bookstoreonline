@@ -2,7 +2,7 @@
 	$email = $_POST['inputEmail'];
 	$pswd = $_POST['inputPasswd'];
 
-	$conn = mysqli_connect("remotemysql.com:3306", "p4rP7RYQew", "mBgU0wDM99", "p4rP7RYQew");
+	$conn = mysqli_connect("localhost", "root", "121226", "my_db");
 	if(!$conn){
 		echo "Cannot connecto to database " . mysqli_connect_error($conn);
 		exit;
