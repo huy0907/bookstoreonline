@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="bootstrap/css/style_dich_vu.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <title>Dịch vụ</title>
+  <title>Sách</title>
 </head>
 
   <header class="container-fluid">
@@ -29,16 +29,20 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="publisher_list.php">NHÁ XUẤT BẢN
+        <a class="nav-link" href="publisher_list.php">NHÀ XUẤT BẢN
         </a>
         
       <li class="nav-item">
-        <a class="nav-link" href="books.php">SÁCH</a>
+        <a class="nav-link" href="products.php">SÁCH</a>
+
        <li class="nav-item">
         <a class="nav-link" href="contact.php">LIÊN HỆ</a>
        <li class="nav-item">
         <a class="nav-link" href="cart.php">GIỎ HÀNG</a>  
+        <li class="nav-item">
+        <a class="nav-link" href="admin.php">ĐĂNG NHẬP</a>
         </div>
+        
     </ul> 
   </div>
 </nav>

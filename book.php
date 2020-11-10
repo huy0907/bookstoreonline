@@ -6,7 +6,7 @@
   $conn = db_connect();
   
 
-  $query = "SELECT * FROM books b LEFT JOIN category c ON b.category = c.id_cat WHERE book_isbn = '$book_isbn' ";
+  $query = "SELECT * FROM books b WHERE book_isbn = '$book_isbn' ";
   $result = mysqli_query($conn, $query);
   if(!$result){
     echo "Can't retrieve data " . mysqli_error($conn);
@@ -50,7 +50,7 @@
                 case "book_price":
                   $key = "Giá (VNĐ)";
                   break;
-                case "category_name":
+                case "category":
                   $key = "Thể loại";
                 break;
                 case "cover_type":
