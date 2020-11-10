@@ -86,7 +86,7 @@
 	</form>
 	<br/><br/>
 	<a href="checkout.php" class="btn btn-primary">Go To Checkout</a> 
-	<a href="books.php" class="btn btn-primary">Continue Shopping</a>
+	<a href="products.php" class="btn btn-primary">Continue Shopping</a>
 <?php
 	} else {
 		echo "<p class=\"text-warning\">Your cart is empty! Please make sure you add some books in it!</p>";

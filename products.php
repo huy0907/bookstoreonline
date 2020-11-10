@@ -35,16 +35,18 @@ require_once "./template/header.php";
         	<br />
             
             <div class="col-md-3" style >  
-            <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name">             				
-				<div class="list-group">
-					<h3>Price</h3>
+                <div id = 'search'>
+                <input type="text" id="myInput" placeholder="Search for names.." title="Type in a name" value = "">             				
+				</div>
+                <div class="list-group">
+					<h3>Giá</h3>
 					<input type="hidden" id="hidden_minimum_price" value="0" />
                     <input type="hidden" id="hidden_maximum_price" value="1020000" />
                     <p id="price_show">1000 - 1020000</p>
                     <div id="price_range"></div>
                 </div>
                 <div class="list-group">
-					<h3>Category</h3>
+					<h3>Thể loại</h3>
                     <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
 					<?php
 
@@ -108,6 +110,29 @@ require_once "./template/header.php";
                     ?>
                     </div>
                 </div>
+                
+                <div class="list-group">
+					<h3>Năm xuất bản</h3>
+                    <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+					<?php
+
+                    $query = "SELECT DISTINCT(year_publish) FROM books ORDER BY year_publish DESC";
+                    $statement = $connect->prepare($query);
+                    $statement->execute();
+                    $result = $statement->fetchAll();
+                    foreach($result as $row)
+                    {
+                    ?>
+                    <div class="list-group-item checkbox">
+                        <label><input type="checkbox" class="common_selector year_publish" value="<?php echo $row['year_publish']; ?>"  > <?php echo $row['year_publish']; ?></label>
+                    </div>
+                    <?php
+                    }
+
+                    ?>
+                    </div>
+                </div>
+                
             </div>
 
             <div class="col-md-9">
@@ -141,11 +166,12 @@ $(document).ready(function(){
         var category = get_filter('category');
         var cover_type = get_filter('cover_type');
         var publisher = get_filter('publisher');
-        var name = $('#myInput');
+        var year_publish = get_filter('year_publish');
+        var name = $('#myInput').val();
         $.ajax({
             url:"fetch_data.php",
             method:"POST",
-            data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price, category: category, cover_type : cover_type, publisher:publisher, name: "huy"},
+            data:{action:action, minimum_price:minimum_price, maximum_price:maximum_price, category: category, cover_type : cover_type, publisher:publisher, name: name, year_publish : year_publish},
             success:function(data){
                 $('.filter_data').html(data);
             }
@@ -168,9 +194,9 @@ $(document).ready(function(){
     $('#price_range').slider({
         range:true,
         min:1000,
-        max:65000,
-        values:[1000, 65000],
-        step:500,
+        max:1000000,
+        values:[1000, 1000000],
+        step:30000,
         stop:function(event, ui)
         {
             $('#price_show').html(ui.values[0] + ' - ' + ui.values[1]);
@@ -179,8 +205,7 @@ $(document).ready(function(){
             filter_data();
         }
     });
-    $('#myInput').keyup(function(){
-        $('#myInput') = this.value;
+    $('#search').keyup(function(){
         filter_data();
     });
 });

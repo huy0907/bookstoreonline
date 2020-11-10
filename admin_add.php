@@ -25,15 +25,23 @@
 		$publisher = trim($_POST['publisher']);
 		$publisher = mysqli_real_escape_string($conn, $publisher);
 
+		$image = trim($_POST['image']);
+		$image = mysqli_real_escape_string($conn, $image);
 
-		if(isset($_FILES['image']) && $_FILES['image']['name'] != ""){
-			$image = $_FILES['image']['name'];
-			$directory_self = str_replace(basename($_SERVER['PHP_SELF']), '', $_SERVER['PHP_SELF']);
-			$uploadDirectory = $_SERVER['DOCUMENT_ROOT'] . $directory_self . "bootstrap/img/";
-			$uploadDirectory .= $image;
-			move_uploaded_file($_FILES['image']['tmp_name'], $uploadDirectory);
-		}
+		$cover = trim($_POST['cover']);
+		$cover = mysqli_real_escape_string($conn, $cover);
 
+		$year = trim($_POST['year']);
+		$year = mysqli_real_escape_string($conn, $year);
+		
+		$size = trim($_POST['size']);
+		$size = mysqli_real_escape_string($conn, $size);
+
+		$page = trim($_POST['page']);
+		$page = mysqli_real_escape_string($conn, $page);
+
+		$cat = trim($_POST['cat']);
+		$cat = mysqli_real_escape_string($conn, $cat);
 
 		$findPub = "SELECT * FROM publisher WHERE publisher_name = '$publisher'";
 		$findResult = mysqli_query($conn, $findPub);
@@ -52,7 +60,7 @@
 		}
 
 
-		$query = "INSERT INTO books VALUES ('" . $isbn . "', '" . $title . "', '" . $author . "', '" . $image . "', '" . $descr . "', '" . $price . "', '" . $publisherid . "')";
+		$query = "INSERT INTO books VALUES ('" . $author . "','" . $isbn . "', '" . $cover . "' , '" . $descr . "', '" . $image . "', '" . $title . "', '" . $page  . "', '" . $price . "','" . $size . "', '" . $year . "','" . $publisherid . "','" . $cat . "')";
 		$result = mysqli_query($conn, $query);
 		if(!$result){
 			echo "Can't add new data " . mysqli_error($conn);
@@ -65,38 +73,55 @@
 	<form method="post" action="admin_add.php" enctype="multipart/form-data">
 		<table class="table">
 			<tr>
-				<th>ISBN</th>
+				<th>Barcode</th>
 				<td><input type="text" name="isbn"></td>
 			</tr>
 			<tr>
-				<th>Title</th>
+				<th>Tên</th>
 				<td><input type="text" name="title" required></td>
 			</tr>
 			<tr>
-				<th>Author</th>
+				<th>Tác giả</th>
 				<td><input type="text" name="author" required></td>
 			</tr>
 			<tr>
-				<th>Image</th>
-				<td><input type="file" name="image"></td>
+				<th>Ảnh</th>
+				<td><input type="text" name="image"></td>
 			</tr>
 			<tr>
-				<th>Description</th>
+				<th>Mô tả</th>
 				<td><textarea name="descr" cols="40" rows="5"></textarea></td>
 			</tr>
 			<tr>
-				<th>Price</th>
+				<th>Giá</th>
 				<td><input type="text" name="price" required></td>
 			</tr>
 			<tr>
-				<th>Publisher</th>
-				<td><select name="publisher" required>
-					  <option value="Wrox">Kim Đồng</option>
-	 				  <option value="Wiley">First News</option>
-                      <option value="O'Reilly Media">MCBOOKS</option>
-					  <option value="Apress">Alphabooks</option>
-	 				  <option value="Addison-Wesley">Thái Hà</option>
-                      <option value="Others">Khác</option></td>
+				<th>Nhà xuất bản</th>
+				<td><input type="text" name="publisher" required></td>
+			</tr>
+
+			<tr>
+				<th>Bìa</th>
+				<td><input type="text" name="cover" required></td>
+			</tr>
+			<tr>
+				<th>Năm</th>
+				<td><input type="text" name="year" required></td>
+			</tr>
+
+			<tr>
+				<th>Kích cỡ</th>
+				<td><input type="text" name="size" required></td>
+			</tr>
+			<tr>
+				<th>Số trang</th>
+				<td><input type="text" name="page" required></td>
+			</tr>
+
+			<tr>
+				<th>Thể loại</th>
+				<td><input type="text" name="cat" required></td>
 			</tr>
 		</table>
 		<input type="submit" name="add" value="Add new book" class="btn btn-primary">

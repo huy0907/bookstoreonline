@@ -13,7 +13,6 @@
 			<th>ISBN</th>
 			<th>Title</th>
 			<th>Author</th>
-			<th>Image</th>
 			<th>Description</th>
 			<th>Price</th>
 			<th>Publisher</th>
@@ -25,7 +24,6 @@
 			<td><?php echo $row['book_isbn']; ?></td>
 			<td><?php echo $row['book_title']; ?></td>
 			<td><?php echo $row['book_author']; ?></td>
-			<td><?php echo $row['book_image']; ?></td>
 			<td><?php echo $row['book_descr']; ?></td>
 			<td><?php echo $row['book_price']; ?></td>
 			<td><?php echo getPubName($conn, $row['publisherid']); ?></td>

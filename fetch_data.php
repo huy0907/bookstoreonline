@@ -44,10 +44,18 @@ if(isset($_POST["action"]))
 		 AND publisherid IN('".$publisher_filter."')
 		";
 	}
-	
-	if (isset($_POST["name"])) {
+
+	if(isset($_POST["year_publish"]))
+	{
+		$year_filter = implode("','", $_POST["year_publish"]);
 		$query .= "
-		 AND book_title LIKE '%".$_POST["name"]."%'
+		 AND year_publish IN('".$year_filter."')
+		";
+	}
+
+	if (isset($_POST["name"]) && !empty($_POST["name"])) {
+		$query .= "
+		 AND MATCH(book_title) AGAINST ('".$_POST["name"]."')
 		";
 	}
 	
@@ -58,6 +66,7 @@ if(isset($_POST["action"]))
 	$output = '';
 	if($total_row > 0)
 	{
+		$output .= '<p class="col-12"> Có '. $total_row .' kết quả phù hợp </p>';
 		foreach($result as $row)
 		{
 			$output .= '
@@ -66,7 +75,12 @@ if(isset($_POST["action"]))
 				<div style="border:1px solid #ccc; border-radius:5px; padding:16px; margin-bottom:16px; height:450px;">
 					<p align="center"><strong><a href="book.php?bookisbn='. $row['book_isbn'] .'"> '. $row['book_title'] .'</a></strong></p>
 					<img src = "'. $row['book_image'] .'" width = "100%" height = "50%">
-					</div>
+					<br>
+					<br>
+					<p> Giá: '. $row['book_price'] .' VNĐ</p>
+					<p> Loại bìa: '. $row['cover_type'] .'</p>
+					<p> Thể loại: '. $row['category'] .'</p>
+					</div> 
 			</div>
 			';
 		}
