@@ -6,7 +6,7 @@
   $conn = db_connect();
   
 
-  $query = "SELECT * FROM books b WHERE book_isbn = '$book_isbn' ";
+  $query = "SELECT * FROM books WHERE book_isbn = '$book_isbn' ";
   $result = mysqli_query($conn, $query);
   if(!$result){
     echo "Can't retrieve data " . mysqli_error($conn);

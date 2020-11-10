@@ -30,6 +30,8 @@ require_once "./template/header.php";
 
 <body>
     <!-- Page Content -->
+    <br>
+    <br>
     <div class="container">
         <div class="row">
         	<br />

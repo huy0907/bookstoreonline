@@ -29,13 +29,6 @@ if(isset($_POST["action"]))
 		 AND cover_type IN('".$covertype_filter."')
 		";
 	}
-	if(isset($_POST["cover_type"]))
-	{
-		$covertype_filter = implode("','", $_POST["cover_type"]);
-		$query .= "
-		 AND cover_type IN('".$covertype_filter."')
-		";
-	}
 
 	if(isset($_POST["publisher"]))
 	{

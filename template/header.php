@@ -11,19 +11,16 @@
 
   <header class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-md-1">
-        <div class="logo" ><a href="index.php" target="_blank">
-          <img src="bootstrap/img/hello.jpg" alt="Logo" class=""></a>
-        </div>
-      </div>
+        <a href="index.php" target="_blank" >
+        <img src="bootstrap/img/hello.jpg" alt="Logo" width="1349px" ></a>
       <br>
       
     
     </div>
   </header>
-  <nav class="navbar navbar-expand-lg navbar-light " >
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ">
+  <nav class="navbar navbar-expand-lg navbar-light " style="margin:auto;" >
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+    <ul class="navbar-nav mr-auto " style="margin-left:35rem;">
        <li class="nav-item">
         <a class="nav-link" href="index.php">  HOME                  
         </a>
